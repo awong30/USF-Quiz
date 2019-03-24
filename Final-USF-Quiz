@@ -1,0 +1,53 @@
+#Proposal: Easy and simple quiz about USF. Allow incoming students
+#to learn the location of USF and the school
+
+#This is where the program starts running
+def main():
+	welcome_message()
+	testrun2()
+	
+
+#Introduce the user into the program and ask for name
+def welcome_message():
+	      name=input('Enter your name: ')
+	      print('Welcome', name)
+	      print("Hope you studied for the quiz!")
+
+#The function ask the users the questions and if they are correct,
+#it will add one point into variable score
+def testrun2():
+	print("What is the address of USF?")
+	response = input()
+	score=0
+
+	if response== "2130 Fulton Street":
+		score+=1
+		print("Correct :D")
+	else:
+		print("Wrong >:(")
+	print("What city is USF in?")
+	response1=input().lower()
+	if response1=="san francisco":
+		score+=1
+		print("Correct :D")
+	else:
+	      print("Wrong >:(")
+	print(score, "out of 2.")
+	return calculate_score(score)
+
+#Calculates the score, one wrong or more equals to failure of quiz.
+def calculate_score(score):
+    total_score=float(score/2)
+    if total_score>=.51:
+        print("You pass!")
+    else:
+        print("You fail!")
+        print("Do you want to try again? \nChoose(y/n)")
+        response2=input()
+        if response2=="y":
+            return testrun2()
+        else:
+            response2=="n"
+            print("Goodbye")
+
+#Calls program to start
